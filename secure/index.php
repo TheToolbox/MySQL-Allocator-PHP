@@ -3,9 +3,6 @@
 
 	$con = new mysqli("localhost","root");
 
-	$con->query("INSERT INTO meta.users (netid,displayname,givenname,surname,useragent,affiliation) VALUES ('".$netid."','".$_SERVER["displayName"]."','".$_SERVER["givenName"]."','".$_SERVER["sn"]."','".$_SERVER["HTTP_USER_AGENT"]."','".$_SERVER["affiliation"]."') ON DUPLICATE KEY UPDATE;");
-
-
 	$result = $con->query("SELECT password FROM mysql.user WHERE user='".$netid."';");
 
 	$allocated = $result->num_rows>0;
